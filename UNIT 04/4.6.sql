@@ -1,0 +1,34 @@
+CREATE TABLE EMP (
+    EMPNO NUMBER(4) PRIMARY KEY,
+    ENAME VARCHAR2(20),
+    JOB VARCHAR2(20),
+    SAL NUMBER(10,2)
+);
+
+-- Insert sample records
+INSERT INTO EMP VALUES (1001, 'RAHUL', 'MANAGER', 30000);
+INSERT INTO EMP VALUES (1002, 'AMIT', 'CLERK', 20000);
+INSERT INTO EMP VALUES (1003, 'PRIYA', 'ANALYST', 25000);
+INSERT INTO EMP VALUES (1004, 'NEHA', 'SALESMAN', 22000);
+
+COMMIT;
+
+-- Display records before update
+SELECT * FROM EMP;
+
+-- Create procedure without parameters
+CREATE OR REPLACE PROCEDURE UPDATE_EMP
+IS
+BEGIN
+    UPDATE EMP
+    SET SAL = SAL + (SAL * 10 / 100);
+
+    COMMIT;
+END;
+/
+
+-- Execute the procedure
+BEGIN
+    UPDATE_EMP;
+END;
+/
