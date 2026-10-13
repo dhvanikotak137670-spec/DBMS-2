@@ -1,0 +1,10 @@
+CREATE OR REPLACE FUNCTION square_num
+(
+    n IN NUMBER
+)
+RETURN NUMBER
+AS
+BEGIN
+    RETURN n * n;
+END;
+/
