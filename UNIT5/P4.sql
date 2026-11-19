@@ -1,0 +1,9 @@
+CREATE TRIGGER trg_UpdateNewEmp
+ON EMP
+AFTER UPDATE
+AS
+BEGIN
+    INSERT INTO NEWEMP
+    SELECT *
+    FROM inserted;
+END;
